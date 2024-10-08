@@ -1,0 +1,27 @@
+node{
+    def mavenHome = tool name: 'maven3.9.9'
+    echo "The Job Name is : ${env.JOB_NAME}"
+    echo "The Node Name is : ${env.NODE_NAME}"
+    echo "The job url is : ${env.JOB_URL}"
+    echo "The Branch name is : ${env.BRANCH_NAME}"
+    stage ('Checkout-github'){
+        git credentialsId: '04e80925-47b7-4676-8cf7-d915c0707185', url: 'https://github.com/mbr-map/maven-web-application.git'
+    }
+    
+    stage ('Build-Maven'){
+        sh "$mavenHome/bin/mvn clean package"
+    }
+    stage ('ExecuteSonarQubeReport'){
+        sh "$mavenHome/bin/mvn clean sonar:sonar"
+    }
+    stage('UploadArtifactIntoArtifactRepoNexus')
+    {
+        sh "$mavenHome/bin/mvn clean deploy"
+    }
+    stage ('DeployTomcatApplication'){
+        sshagent(['fde8a626-30be-429d-b344-a04b8b2e9e6e']) {
+    sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@13.200.242.113:/opt/apache-tomcat-9.0.95/webapps"
+}
+    }
+    
+}
