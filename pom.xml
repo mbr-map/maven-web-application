@@ -21,8 +21,8 @@
 		<spring.version>5.1.2.RELEASE</spring.version>
 		<junit.version>4.11</junit.version>
 		<log4j.version>1.2.17</log4j.version>
-		<sonar.host.url>http://172.31.36.235:9000/</sonar.host.url>
-		<sonar.login>squ_fd18e4369010f92d94d14350899f71955db80128</sonar.login>
+		<sonar.host.url>http://172.31.34.169:9000/</sonar.host.url>
+		<sonar.login>squ_730c235c650ffbfe1aeaa8d345e0a075fdec85ff</sonar.login>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -96,14 +96,14 @@
 	
 	    <repository>
 	      <id>nexus</id>
-	      <name>MBR Releases Nexus Repository</name>
-	      <url>http://172.31.1.161:9945/mbr/repository/Bmr-release/</url>
+	      <name>Mithun Technologies Releases Nexus Repository</name>
+	      <url>http://13.212.71.229:9980/mithuntechnologies/repository/canarabank-snapshot/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
-	      <name>MBR Snapshot Nexus Repository </name>
-	      <url>http://172.31.1.161:9945/mbr/repository/Bmr-snapshot/</url>
+	      <name>Mithun Technologies Snapshot Nexus Repository </name>
+	      <url>http://13.212.71.229:9980/mithuntechnologies/repository/canarabank-release/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
@@ -112,6 +112,11 @@
 		<finalName>maven-web-application</finalName>
 		
 		<plugins>
+			<plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-war-plugin</artifactId>
+                            <version>3.3.2</version>
+                        </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
