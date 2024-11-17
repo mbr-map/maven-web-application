@@ -21,8 +21,8 @@
 		<spring.version>5.1.2.RELEASE</spring.version>
 		<junit.version>4.11</junit.version>
 		<log4j.version>1.2.17</log4j.version>
-		<sonar.host.url>http://172.31.33.99:9000/</sonar.host.url>
-		<sonar.login>squ_0edfb3e31c002fbb53b42a3a8fb7ae7925e0d7e2</sonar.login>
+		<sonar.host.url>http://172.31.41.151:9000/</sonar.host.url>
+		<sonar.login>sqa_4fcf70f37def6c8e19a3de1e3f0cf5194a4792a9</sonar.login>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -98,13 +98,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>MBR Releases Nexus Repository</name>
-	      <url>http://172.31.40.42:9945/mbr/repository/bmr-release/</url>
+	      <url>http://172.31.36.172:9945/mbr/repository/BmrRelease/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>MBR Snapshot Nexus Repository </name>
-	      <url>http://172.31.40.42:9945/mbr/repository/bmr-snapshot/</url>
+	      <url>http://172.31.36.172:9945/mbr/repository/BmrSnapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
