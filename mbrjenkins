@@ -6,10 +6,18 @@ stage ('github-Checkout')
 SendslackNotification('STARTED')
 git credentialsId: 'e833b465-cf3e-42db-83e7-f123de389769', url: 'https://github.com/mbr-map/maven-web-application.git'
 }
+stage ('Run-Test'){
+sh "$mavenhome/bin/mvn clean test"
+}
 stage ('Maven-Build')
 {
 sh "$mavenhome/bin/mvn clean package"
 }
+stage ('ExecuteSonarQubeRepo'){
+sh "$mavenhome/bin/mvn clean sonar:sonar"
+}
+stage ('UploadArtifactIntoNexus'){
+sh "$mavenhome/bin/mvn clean deploy"
 }
 catch (e)
 {
